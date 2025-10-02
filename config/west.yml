@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: hsgw
+      url-base: https://github.com/hsgw
 
   projects:
     # ZMK 本体。公式の app/west.yml を取り込む
@@ -19,6 +21,11 @@ manifest:
       revision: main
       # 置き場所を明示したい場合は path を指定（任意）
       # path: modules/zmk-pmw3610-driver
+    
+    # Sensor-rotation
+    - name: zmk-feature-sensor_rotation
+      remote: hsgw
+      revision: main
 
   self:
     path: configr
