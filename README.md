@@ -10,4 +10,4 @@ Layer 2 Bluetooth & FUNCTION
 <img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/42ea9497-87a7-43d3-8333-2bb7c986e9dc" />
 
 Layer 3 AUTO MOUSE
-<img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/fee95e13-aebf-41a2-9a07-f09f48744822" />
+<img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/2efe5275-e460-41bc-ae45-0c0665435268" />
