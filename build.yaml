@@ -1,6 +1,10 @@
+---
+# GitHub Actions や `just build` のマトリクスを定義するファイル。
+# シンプルな組合せは include 配列に追記する。
 include:
- - board: seeeduino_xiao_ble
-   shield: KobitoKey_left
-   
- - board: seeeduino_xiao_ble
-   shield: KobitoKey_right
+  - board: seeeduino_xiao_ble
+    shield: KobitoKey_left
+  - board: seeeduino_xiao_ble
+    shield: KobitoKey_right
+  - board: seeeduino_xiao_ble
+    shield: settings_reset

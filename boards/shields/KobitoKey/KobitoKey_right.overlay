@@ -1,6 +1,7 @@
 #include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
 #include "kobitokey.dtsi"
 #include <input/processors.dtsi>
+#include <input/processors/sensor_rotation.dtsi>
 
 /* 列オフセット */
 &default_transform { col-offset = <5>; };
@@ -45,4 +46,30 @@
     device = <&tb_right>;
 
     input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
+};
+
+/ {
+    sensor_rotation_right: sensor-rotation-right {
+        compatible = "zmk,input-processor-sensor-rotation";
+        status = "okay";
+        #input-processor-cells = <0>;
+        rotation-angle = <24>;
+    };
+};
+
+/ {
+  /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+    compatible = "zmk,input-processor-temp-layer";
+    #input-processor-cells = <2>;
+    require-prior-idle-ms = <350>;
+    status = "okay";
+  };
+};
+
+&tb_right_listener {
+    status = "okay";
+
+    input-processors =
+        <&sensor_rotation_right>,
+        <&zip_temp_layer 3 5000>;
 };
