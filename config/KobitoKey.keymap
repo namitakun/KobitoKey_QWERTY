@@ -55,7 +55,7 @@
 
         /* レイヤー1: 数字・矢印などの補助キー */
         layer1 {
-            label = "NUMBER";
+            display-name = "NUMBER";
             bindings = <
                 &kp N0    &kp N1   &kp N2   &kp N3      &trans          &kp MINUS   &trans       &kp UP         &trans       &trans
                 &kp EQUAL &kp N4   &kp N5   &kp N6      &trans          &kp PLUS    &kp LEFT     &kp DOWN       &kp RIGHT    &trans
@@ -66,7 +66,7 @@
 
         /* レイヤー2: Bluetooth 管理とファンクションキー */
         layer2 {
-            label = "FUNCTION";
+            display-name = "FUNCTION";
             bindings = <
                 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4          &kp F1        &kp F2       &kp F3      &kp F4     &kp F5
                 &trans         &trans         &trans         &trans         &bt BT_CLR            &kp F6        &kp F7       &kp F8      &kp F9     &kp F10
@@ -77,7 +77,7 @@
 
         /* レイヤー3: トラックボール利用時のマウスキー */
         layer3 {
-            label = "MOUSE";
+            display-name = "MOUSE";
             bindings = <
                 &trans      &trans   &trans     &trans      &trans           &trans   &mkp MB1   &mkp MB3   &mkp MB2  &trans
                 &trans      &trans   &trans     &trans      &trans           &trans   &trans     &trans     &trans    &trans
