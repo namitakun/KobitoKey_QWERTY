@@ -22,8 +22,8 @@
 ├── build.sh                     # just を呼び出すビルドスクリプト
 ├── config/                      # ZMK Config 直下で編集するファイル群
 │   ├── KobitoKey.keymap         # エディタ編集用のキーマップ（boards版と同内容）
-│   ├── KobitoKey_left.conf      # 左手ファーム用 Kconfig 追加
-│   ├── KobitoKey_right.conf     # 右手ファーム用 Kconfig 追加
+│   ├── KobitoKey_left.conf      # 左手ファーム用 Kconfig 追加（日本語コメント付き）
+│   ├── KobitoKey_right.conf     # 右手ファーム用 Kconfig 追加（日本語コメント付き）
 │   ├── KobitoKey.json           # ZMK Studio 用の物理レイアウト
 │   └── west.yml                 # ZMK v0.3 + 追加モジュール2件を取得
 └── zephyr/module.yml            # ZMK への board_root 指定

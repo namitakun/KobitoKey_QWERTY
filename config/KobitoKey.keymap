@@ -4,9 +4,14 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
 
+/*
+ * KobitoKey のキーマップ定義。
+ * config 配下で編集し、boards/shields 側は include のみにしています。
+ */
 
  / { 
         combos {
+        /* ことえり切り替えや補助キーを 2キー同時押しで呼び出す */
         compatible = "zmk,combos";
 
         combo_eisu {
@@ -38,6 +43,7 @@
         keymap {
         compatible = "zmk,keymap";
 
+        /* レイヤー0: QWERTY ベースレイヤー */
         default_layer {
             bindings = <
                 &kp Q       &kp W      &kp E      &kp R           &kp T                    &kp Y            &kp U           &kp I        &kp O      &kp P
@@ -47,6 +53,7 @@
             >;
         };
 
+        /* レイヤー1: 数字・矢印などの補助キー */
         layer1 {
             label = "NUMBER";
             bindings = <
@@ -57,6 +64,7 @@
             >;
         };
 
+        /* レイヤー2: Bluetooth 管理とファンクションキー */
         layer2 {
             label = "FUNCTION";
             bindings = <
@@ -67,6 +75,7 @@
             >;
         };
 
+        /* レイヤー3: トラックボール利用時のマウスキー */
         layer3 {
             label = "MOUSE";
             bindings = <
