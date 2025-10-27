@@ -10,6 +10,24 @@ config ZMK_SPLIT
     default y
 config ZMK_POINTING
     default y
+config ZMK_BLE
+    default y
+config ZMK_MOUSE
+    default y
 config SPI
+    default y
+config INPUT
+    default y
+config PMW3610
+    default y
+config PMW3610_SMART_ALGORITHM
+    default y
+config PMW3610_REPORT_INTERVAL_MIN
+    default 12
+config SENSOR_ROTATION
+    default y
+config ZMK_BATTERY_REPORTING
+    default y
+config ZMK_SPLIT_BLE
     default y
 endif
