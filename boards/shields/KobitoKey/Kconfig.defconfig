@@ -1,33 +1,42 @@
-# 左（central）
+# 左手（Peripheral）側のデフォルト
 if SHIELD_KOBITOKEY_LEFT
 config ZMK_KEYBOARD_NAME
     default "KobitoKey"
 endif
 
-# 左右共通
+# 左右共通で有効化する機能群
 if SHIELD_KOBITOKEY_LEFT || SHIELD_KOBITOKEY_RIGHT
+# Split 構成を標準で有効化
 config ZMK_SPLIT
     default y
+# ポインティングデバイス（トラックボール）を有効化
 config ZMK_POINTING
     default y
+# BLE 接続を利用
 config ZMK_BLE
     default y
+# マウス HID 機能を有効化
 config ZMK_MOUSE
     default y
+# トラックボール通信用の SPI/I2C 入力を許可
 config SPI
     default y
 config INPUT
     default y
+# PixArt PMW3610 ドライバ関連
 config PMW3610
     default y
 config PMW3610_SMART_ALGORITHM
     default y
 config PMW3610_REPORT_INTERVAL_MIN
     default 12
+# センサー回転補正を有効化
 config SENSOR_ROTATION
     default y
+# バッテリー情報を収集
 config ZMK_BATTERY_REPORTING
     default y
+# Split BLE 関連機能を共通で有効にする
 config ZMK_SPLIT_BLE
     default y
 endif
