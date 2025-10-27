@@ -72,5 +72,6 @@
 
     input-processors =
         <&sensor_rotation_right>,
+        <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
         <&zip_temp_layer 3 5000>;
 };
