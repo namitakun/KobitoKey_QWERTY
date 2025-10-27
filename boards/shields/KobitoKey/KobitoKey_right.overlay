@@ -68,10 +68,21 @@
 
 &tb_right_listener {
     status = "okay";
-    device = <&tb_right>;
 
     input-processors =
         <&sensor_rotation_right>,
-        <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
         <&zip_temp_layer 3 5000>;
+};
+
+/ {
+    tb_right_local_listener: tb_right_local_listener {
+        compatible = "zmk,input-listener";
+        status = "okay";
+        device = <&tb_right>;
+
+        input-processors =
+            <&sensor_rotation_right>,
+            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_temp_layer 3 5000>;
+    };
 };
