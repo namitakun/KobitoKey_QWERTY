@@ -2,7 +2,6 @@
 #include "kobitokey.dtsi"
 #include <input/processors.dtsi>
 #include <input/processors/sensor_rotation.dtsi>
-#include "../../../config/KobitoKey_rotation.dtsi"
 
 /* 列オフセット */
 &default_transform { col-offset = <5>; };
@@ -47,15 +46,6 @@
     device = <&tb_right>;
 
     input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
-};
-
-/ {
-    sensor_rotation_right: sensor-rotation-right {
-        compatible = "zmk,input-processor-sensor-rotation";
-        status = "okay";
-        #input-processor-cells = <0>;
-        rotation-angle = <KOBITOKEY_RIGHT_ROTATION>;
-    };
 };
 
 / {

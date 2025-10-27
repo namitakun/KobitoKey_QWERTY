@@ -1,5 +1,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+#include <input/processors/sensor_rotation.dtsi>
+#include "../../../config/KobitoKey_rotation.dtsi"
 #include "KobitoKey-layouts.dtsi"
 
 / {
@@ -59,8 +62,21 @@
     };
 };
 
-
 / {
+    sensor_rotation_left: sensor-rotation-left {
+        compatible = "zmk,input-processor-sensor-rotation";
+        status = "okay";
+        #input-processor-cells = <0>;
+        rotation-angle = <KOBITOKEY_LEFT_ROTATION>;
+    };
+
+    sensor_rotation_right: sensor-rotation-right {
+        compatible = "zmk,input-processor-sensor-rotation";
+        status = "okay";
+        #input-processor-cells = <0>;
+        rotation-angle = <KOBITOKEY_RIGHT_ROTATION>;
+    };
+
     /* ★ 単体の物理レイアウト定義（Studio不要の最小形） */
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
