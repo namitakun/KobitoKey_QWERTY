@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: hsgw
       url-base: https://github.com/hsgw
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
 
   projects:
     # ZMK 本体。公式 app/west.yml を取り込む
@@ -22,6 +24,11 @@ manifest:
     # センサー回転機能（ハンズオン中のモジュール）
     - name: zmk-feature-sensor_rotation
       remote: hsgw
+      revision: main
+
+    # RGB LED status widget
+    - name: zmk-rgbled-widget
+      remote: caksoylar
       revision: main
 
   self:

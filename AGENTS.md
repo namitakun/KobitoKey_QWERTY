@@ -24,6 +24,7 @@
 │   ├── KobitoKey.keymap         # エディタ編集用のキーマップ（boards版と同内容）
 │   ├── KobitoKey_left.conf      # 左手ファーム用 Kconfig 追加（日本語コメント付き）
 │   ├── KobitoKey_right.conf     # 右手ファーム用 Kconfig 追加（日本語コメント付き）
+│   ├── KobitoKey_rotation.dtsi  # 左右のセンサー回転角（macro指定で調整）
 │   ├── KobitoKey.json           # ZMK Studio 用の物理レイアウト
 │   └── west.yml                 # ZMK v0.3 + 追加モジュール2件を取得
 └── zephyr/module.yml            # ZMK への board_root 指定
@@ -46,13 +47,13 @@
 - `kobitokey.dtsi` で `split_inputs` を定義し、右手デバイスのトラックボール入力を中央に転送。
 - 左右 `config/KobitoKey_left.conf` / `config/KobitoKey_right.conf`：共通で BLE スプリット有効、左（ペリフェラル）で `CONFIG_ZMK_KEYBOARD_NAME="KobitoKey"`、右（セントラル）で `CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y` やバッテリープロキシを有効化。
     - 左側は USB を無効化（`CONFIG_ZMK_USB=n`）し、右側に `CONFIG_ZMK_USB=y` を追加して USB 接続時もスプリット全体を使用可能に。
-    - 右手トラックボールはローカル専用リスナー（`tb_right_local_listener`）で `zip_xy_transform INPUT_TRANSFORM_Y_INVERT` を適用し、Split 経由の左手スクロールには影響させない。現在は `rotation-angle = -15` で調整検証中。
-    - 双方とも `CONFIG_ZMK_MOUSE=y`。
+    - 右手トラックボールはローカル専用リスナー（`tb_right_local_listener`）で `zip_xy_transform INPUT_TRANSFORM_Y_INVERT` を適用し、Split 経由の左手スクロールには影響させない。センサーの回転角は `config/KobitoKey_rotation.dtsi` のマクロで管理。
+    - 中央側には `zmk-rgbled-widget` を導入し、`rgbled_adapter` シールド経由でバッテリー/レイヤー表示を有効化。左右とも `CONFIG_ZMK_MOUSE=y`。
 
 ## ビルド・依存関係
 - `build.sh`：リポジトリルート（`zmk-workspace`）で `just build KobitoKey_left/right/settings_reset` を実行。
 - `build.yaml`：GitHub Actions や `just build` マトリクス用に `seeeduino_xiao_ble` + `KobitoKey_left/right/settings_reset` を定義。
-- `config/west.yml`：ZMK 本体（v0.3）に加え、`badjeff/zmk-pmw3610-driver` と `hsgw/zmk-feature-sensor_rotation` を追加取得。
+- `config/west.yml`：ZMK 本体（v0.3）に加え、`badjeff/zmk-pmw3610-driver`、`hsgw/zmk-feature-sensor_rotation`、`caksoylar/zmk-rgbled-widget` を追加取得。
 
 ## 直近カスタマイズ時に気をつけたい点
 - 物理配列 (`KobitoKey-layouts.dtsi`) と `default_transform` の行列が固定幅 (1u) 前提。変更時は両方の整合性を取る。
