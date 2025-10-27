@@ -92,3 +92,8 @@
         zmk,physical-layout = &physical_layout0;
     };
 };
+
+&uicr {
+    /* NFCT ピンを GPIO として利用する */
+    nfct-pins-as-gpios;
+};

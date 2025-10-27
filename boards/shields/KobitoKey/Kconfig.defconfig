@@ -39,4 +39,7 @@ config ZMK_BATTERY_REPORTING
 # Split BLE 関連機能を共通で有効にする
 config ZMK_SPLIT_BLE
     default y
+# 古い GPREGRET ベースのリブート理由保持は使用せず、警告を回避
+config NRF_STORE_REBOOT_TYPE_GPREGRET
+    default n
 endif
