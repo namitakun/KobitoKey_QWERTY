@@ -2,6 +2,7 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
 #include <input/processors/sensor_rotation.dtsi>
+#include "../../../config/KobitoKey_rotation.dtsi"
 
 &xiao_serial { status = "disabled"; };
 
@@ -51,14 +52,14 @@
         compatible = "zmk,input-processor-sensor-rotation";
         status = "okay";
         #input-processor-cells = <0>;
-        rotation-angle = <(-24)>;
+        rotation-angle = <KOBITOKEY_LEFT_ROTATION>;
     };
 
     sensor_rotation_right: sensor-rotation-right {
         compatible = "zmk,input-processor-sensor-rotation";
         #input-processor-cells = <0>;
         status = "okay";
-        rotation-angle = <24>;
+        rotation-angle = <KOBITOKEY_RIGHT_ROTATION>;
     };
 };
 
