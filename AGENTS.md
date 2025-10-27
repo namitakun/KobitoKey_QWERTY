@@ -46,7 +46,7 @@
 - `kobitokey.dtsi` で `split_inputs` を定義し、右手デバイスのトラックボール入力を中央に転送。
 - 左右 `config/KobitoKey_left.conf` / `config/KobitoKey_right.conf`：共通で BLE スプリット有効、左（ペリフェラル）で `CONFIG_ZMK_KEYBOARD_NAME="KobitoKey"`、右（セントラル）で `CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y` やバッテリープロキシを有効化。
     - 左側は USB を無効化（`CONFIG_ZMK_USB=n`）し、右側に `CONFIG_ZMK_USB=y` を追加して USB 接続時もスプリット全体を使用可能に。
-    - 右手トラックボールはローカル専用リスナー（`tb_right_local_listener`）で `zip_xy_transform INPUT_TRANSFORM_Y_INVERT` を適用し、Split 経由の左手スクロールには影響させない。
+    - 右手トラックボールはローカル専用リスナー（`tb_right_local_listener`）で `zip_xy_transform INPUT_TRANSFORM_Y_INVERT` を適用し、Split 経由の左手スクロールには影響させない。現在は挙動検証のため `rotation-angle = 60` と大きめの補正を設定中。
     - 双方とも `CONFIG_ZMK_MOUSE=y`。
 
 ## ビルド・依存関係
